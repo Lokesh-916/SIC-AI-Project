@@ -12,3 +12,7 @@ The preprocessing phase involves resampling the audio to a consistent sample rat
 **Dependencies**:  
 Install required libraries if not installed:
 + pip install librosa soundfile
+  
+Refer to this Python code for preprocessing: [preprocessing.py](./preprocessing.py)  
+### Feature Extraction
+In the feature extraction phase, Mel-Frequency Cepstral Coefficients (MFCCs) are computed from the audio signals. MFCCs capture the spectral characteristics of speech, making them effective for speaker recognition. 
