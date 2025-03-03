@@ -16,3 +16,8 @@ Install required libraries if not installed:
 Refer to this Python code for preprocessing: [preprocessing.py](./preprocessing.py)  
 ### Feature Extraction
 In the feature extraction phase, Mel-Frequency Cepstral Coefficients (MFCCs) are computed from the audio signals. MFCCs capture the spectral characteristics of speech, making them effective for speaker recognition. 
+MFCCs are widely used features in speech and speaker recognition because they effectively capture the unique characteristics of a speaker's voice.
+- They capture vocal tract characteristics, making them useful for distinguishing different speakers.
+- They reduce noise sensitivity compared to raw audio waveforms.
+- They provide a compact representation of speech signals, making them efficient for machine learning models.
+
