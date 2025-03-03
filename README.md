@@ -21,3 +21,35 @@ MFCCs are widely used features in speech and speaker recognition because they ef
 - They reduce noise sensitivity compared to raw audio waveforms.
 - They provide a compact representation of speech signals, making them efficient for machine learning models.
 
+In a typical set of MFCC coefficients, each coefficient captures different aspects of the audio signal. Here are brief explanations for a few of them:
+
+- First Coefficient (MFCC 0): Often referred to as the "constant" term, it represents the overall energy of the signal.
+
+- Second Coefficient (MFCC 1): Represents the overall spectral slope and is related to the perceived pitch.
+
+- Third Coefficient (MFCC 2): Captures spectral features related to the shape of the vocal tract and is associated with formants in speech.
+
+- Fourth Coefficient (MFCC 3): Reflects changes in the spectral envelope and can be related to nasality in speech.
+
+- Higher-order Coefficients (MFCC 4 and above): Capture more detailed spectral characteristics, providing information about fine spectral structures in the audio.
+
+### Model Setup and Training
+This model is a Recurrent Neural Network (RNN) using an LSTM (Long Short-Term Memory) layer to process sequential audio features for speaker recognition.
+
++ The first layer is an LSTM layer with 128 units, which captures temporal dependencies from the MFCC feature sequences.
++ The second layer is a fully connected Dense layer with 64 neurons and ReLU activation, adding a non-linearity to help the model learn complex patterns.
++ The final output layer has neurons equal to the number of speakers, with a softmax activation function to output probability distributions over the speaker classes.
+### Why Use RNN?
+RNNs, particularly LSTMs (Long Short-Term Memory networks), are well-suited for sequence-based data like audio signals.
+- Sequential Data Handling – Audio features (like MFCCs) are time-dependent, meaning past frames influence the present. LSTMs are designed to handle this temporal relationship effectively.
+
+- Memory of Past Information – Unlike traditional feedforward networks, LSTMs have gates that allow them to retain or forget information, making them ideal for capturing long-term dependencies in speech.
+
+- Better Context Understanding – Speaker-specific features may appear at different points in time, and LSTMs help in preserving context over a sequence, leading to more accurate speaker identification.
+
+### Why Not CNNs or Other Models?
++ CNNs work well for spatial data like images but don’t naturally handle sequential dependencies in audio unless used with 1D convolutions or transformers.
++ Transformers (e.g., Attention-based models) are powerful but require much more data and computational resources than LSTMs for speech tasks.
++ Traditional MLPs (Dense Networks) ignore temporal relationships, making them less effective for speaker recognition.
+  
+Thus, LSTMs strike a balance between efficiency and performance, making them a great choice for small-scale speaker recognition projects. 
